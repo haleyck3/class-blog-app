@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<h1 class="center">Listing Blog Posts</h1>
+  <div class="row">
+    <% @blog_posts.each do |blog_post| %> 
+      <div class="col s12 m6">
+        <div class="card black darken-1">
+          <div class="card-content white-text">
+            <span class="card-title"><%=link_to blog_post.title, blog_post%></span>
+                by <%= blog_post.user.username%>
+              <p><%= blog_post.blog_entry[0..250]%>...[<%=link_to "Read More", blog_post%>]
+              </p>
+          </div>
+          <div class="card-action">
+            <%=link_to "Edit", edit_blog_post_path(blog_post), class: "blue-text text-lighten-4"%>
+            <%=link_to "Destroy", blog_post, method: :delete, data: { confirm: "Are you sure?" }, class: "blue-text text-lighten-4"%>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+
+<%= link_to 'New Blog post', new_blog_post_path %>

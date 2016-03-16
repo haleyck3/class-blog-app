@@ -1,0 +1,61 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @blog_post.title %>
+</p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @blog_post.author %>
+</p>
+
+<p>
+  <strong>Blog entry:</strong>
+  <%= @blog_post.blog_entry %>
+</p>
+
+<%= link_to 'Edit', edit_blog_post_path(@blog_post) %> |
+<%= link_to 'Back', blog_posts_path %>
+
+<% @blog_post.comments.each do |comment| %>
+  <p><%#= comment.author %></p>
+  <p><%#= comment.comment_entry %></p>
+<% end %>
+
+<div class="card">
+    <div class="card-content black-text">
+      <span class="card-title black-text">
+        Leave a Comment!
+      </span>
+      <p>
+        <%= render 'comments/form'%>
+      </p>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-content">
+      <span class="card-title black-text">
+        Comments
+      </span>
+      <% @blog_post.comments.each do |comment| %>
+        <p><b><%=comment.user.username%></b> said:</p>
+        <p><%= comment.comment_entry%></p>
+        <%= link_to 'Edit Comment', edit_comment_path(comment) if comment.user==@user%>
+      <%end%>
+    </div>
+</div>
+
+<div class="panel-body">
+  <strong><%#= @blog_post.user.username %></strong> 
+</div>
+
+<!--<h2>Comments</h2>-->
+<% @blog_post.comments.each do |comment| %>
+  <div class="panel panel-success">
+    <div class="panel-body">
+      <p><strong><%#= comment.user.username %></strong></p>
+    </div>
+  </div>
+<% end %>
