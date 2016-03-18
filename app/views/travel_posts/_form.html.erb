@@ -1,0 +1,33 @@
+<%= form_for(@travel_post) do |f| %>
+  <% if @travel_post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@travel_post.errors.count, "error") %> prohibited this travel_post from being saved:</h2>
+
+      <ul>
+      <% @travel_post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :author %><br>
+    <%= f.text_field :author %>
+  </div>
+  <div class="field">
+    <%= f.label :type %><br>
+    <%= f.text_field :type %>
+  </div>
+  <div class="field">
+    <%= f.label :travel_entry %><br>
+    <%= f.text_area :travel_entry %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :travel_posts
   devise_for :users
   resources :comments
   resources :blog_posts
@@ -8,6 +9,10 @@ Rails.application.routes.draw do
   root 'blog_posts#index'
 
   get 'show' => 'blog_posts#title'
+  
+  get 'travel' => 'travel_posts#index'
+  
+  
   # get 'about'=> 'blog_posts#about'
 
   # get 'contact'=> 'welcome#contact'

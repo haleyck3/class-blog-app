@@ -17,11 +17,19 @@
           <li> Welcome <%= current_user.username%> </li>
           <li> <%= link_to "Edit Profile", edit_user_registration_path %> </li>
           <li> <%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+          
         <% end %>
       </ul>
   </div>
 </div>
 </nav>
+
+<div class="container">
+  <li> <%= link_to "Blog", root_path %> </li>
+  <li> <%= link_to "Travel", travel_path %> </li>
+</div>
+  
+</div>
 
 <div class = "container">
   <%= yield %>

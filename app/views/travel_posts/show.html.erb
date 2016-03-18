@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @travel_post.title %>
+</p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @travel_post.author %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @travel_post.type %>
+</p>
+
+<p>
+  <strong>Travel entry:</strong>
+  <%= @travel_post.travel_entry %>
+</p>
+
+<%= link_to 'Edit', edit_travel_post_path(@travel_post) %> |
+<%= link_to 'Back', travel_posts_path %>
